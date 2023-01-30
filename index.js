@@ -1,6 +1,9 @@
 const express = require('express');
 const cors = require('cors');
 const { MongoClient, ObjectId } = require('mongodb');
+
+const mongoose = require('mongoose')
+const User = require('./models/userSchema')
 require('dotenv').config();
 const port = process.env.PORT || 5000;
 
@@ -88,6 +91,14 @@ async function run() {
             const result = await billCollections.updateOne(filter, updatedBill, option);
             res.send(result)
         })
+
+
+        //registration part
+        app.post('/registration', async (req, res) => {
+            console.log(req.body);
+        });
+
+
 
 
 
